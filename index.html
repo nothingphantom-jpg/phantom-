@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Palkuu 💖</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+max-width:420px;
+width:90%;
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.section{display:none;}
+.active{display:block;}
+
+h1{color:#ff2e63;}
+
+p{
+font-size:17px;
+line-height:1.6;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+background:#ff2e63;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#e6004c;
+}
+
+/* hearts */
+
+.heart{
+position:fixed;
+color:red;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-800px);}
+}
+
+/* cake */
+
+.cake{
+font-size:70px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.cake:hover{
+transform:scale(1.2);
+}
+
+/* slideshow */
+
+.slideshow img{
+width:100%;
+border-radius:12px;
+}
+
+/* game */
+
+#gameBox{
+font-size:40px;
+cursor:pointer;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid">
+</audio>
+
+<canvas id="confetti"></canvas>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+
+<div id="page1" class="section active">
+
+<h1>🎂 Happy Birthday Palkuu 💖</h1>
+
+<p>
+Today the universe celebrates something special…  
+because a girl named <b>Palkuu</b> was born ✨
+</p>
+
+<p>
+And honestly… the world became a little more beautiful after that 😉
+</p>
+
+<button onclick="nextPage()">Start Surprise 🎉</button>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div id="page2" class="section">
+
+<h1>😉 Little Secret</h1>
+
+<p>
+I think the stars were jealous the day you were born…
+</p>
+
+<p>
+Because suddenly there was something on earth shining brighter than them.
+</p>
+
+<p>
+Yes I'm talking about you, **Palkuu** ✨
+</p>
+
+<button onclick="nextPage()">Next</button>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div id="page3" class="section">
+
+<h1>💌 Confession</h1>
+
+<p>
+If smiles were currency…  
+yours would make people billionaires.
+</p>
+
+<p>
+And honestly your smile should be illegal…  
+because it steals hearts too easily 😄
+</p>
+
+<button onclick="nextPage()">Next</button>
+
+</div>
+
+<!-- PAGE 4 -->
+
+<div id="page4" class="section">
+
+<h1>🌹 Just Saying</h1>
+
+<p>
+Out of billions of people in the world…  
+you somehow manage to stand out the most.
+</p>
+
+<p>
+Maybe it's your charm…  
+maybe it's your personality…
+</p>
+
+<p>
+or maybe you are just dangerously adorable 😉
+</p>
+
+<button onclick="nextPage()">Next</button>
+
+</div>
+
+<!-- PAGE 5 SLIDESHOW -->
+
+<div id="page5" class="section">
+
+<h1>📸 Beautiful Moments</h1>
+
+<p>
+Every memory with you becomes special.
+</p>
+
+<div class="slideshow">
+
+<img id="slide" src="https://picsum.photos/400/250?1">
+
+</div>
+
+<p>
+(Imagine your beautiful photos here ✨)
+</p>
+
+<button onclick="nextPage()">Next</button>
+
+</div>
+
+<!-- PAGE 6 -->
+
+<div id="page6" class="section">
+
+<h1>💖 Truth</h1>
+
+<p>
+Some people make the world better just by existing.
+</p>
+
+<p>
+You are definitely one of them.
+</p>
+
+<p>
+Actually… probably the best one 😌
+</p>
+
+<button onclick="nextPage()">Next</button>
+
+</div>
+
+<!-- PAGE 7 GAME -->
+
+<div id="page7" class="section">
+
+<h1>🎮 Mini Birthday Game</h1>
+
+<p>Click the gift as many times as you can!</p>
+
+<div id="gameBox" onclick="score++">🎁</div>
+
+<p>Score: <span id="score">0</span></p>
+
+<p>
+See? Even the gifts want your attention 😄
+</p>
+
+<button onclick="nextPage()">Next</button>
+
+</div>
+
+<!-- PAGE 8 -->
+
+<div id="page8" class="section">
+
+<h1>✨ Another Thought</h1>
+
+<p>
+Some people look good…
+</p>
+
+<p>
+Some people are charming…
+</p>
+
+<p>
+But **Palkuu somehow manages to be both**.
+</p>
+
+<button onclick="nextPage()">Next</button>
+
+</div>
+
+<!-- PAGE 9 -->
+
+<div id="page9" class="section">
+
+<h1>😉 Flirty Warning</h1>
+
+<p>
+Be careful today…
+</p>
+
+<p>
+Because birthdays increase someone's charm by 200%.
+</p>
+
+<p>
+And honestly yours was already too powerful.
+</p>
+
+<button onclick="nextPage()">Next</button>
+
+</div>
+
+<!-- PAGE 10 -->
+
+<div id="page10" class="section">
+
+<h1>🎁 Final Surprise Coming</h1>
+
+<p>
+Before the big moment…  
+one last thing.
+</p>
+
+<p>
+I hope this year brings you happiness, adventure,  
+and people who make you smile every day.
+</p>
+
+<button onclick="nextPage()">Show Cake 🎂</button>
+
+</div>
+
+<!-- PAGE 11 CAKE -->
+
+<div id="page11" class="section">
+
+<h1>🎂 Cut The Cake Palkuu</h1>
+
+<p>Click the cake!</p>
+
+<div class="cake" onclick="cutCake()">🎂</div>
+
+<p id="cakeText" style="display:none">
+
+🎉 Happy Birthday Palkuu 💖  
+May your year be full of happiness and unforgettable moments.
+
+</p>
+
+<button onclick="nextPage()">Final Message</button>
+
+</div>
+
+<!-- PAGE 12 FINAL -->
+
+<div id="page12" class="section">
+
+<h1>❤️ Final Note</h1>
+
+<p>
+Out of billions of people in the world…
+</p>
+
+<p>
+My favorite one is still **Palkuu**.
+</p>
+
+<p>
+Never stop smiling  
+because the world becomes a better place when you do.
+</p>
+
+<p>
+Happy Birthday again ✨
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+/* PAGE SYSTEM */
+
+let page=1;
+
+function nextPage(){
+
+document.getElementById("page"+page).classList.remove("active");
+
+page++;
+
+document.getElementById("page"+page).classList.add("active");
+
+document.getElementById("music").play();
+
+startConfetti();
+
+}
+
+/* CONFETTI */
+
+const canvas=document.getElementById("confetti");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let confetti=[];
+
+function Confetti(){
+this.x=Math.random()*canvas.width;
+this.y=Math.random()*canvas.height;
+this.size=Math.random()*8+3;
+this.speedY=Math.random()*3+2;
+this.color=`hsl(${Math.random()*360},100%,50%)`;
+}
+
+Confetti.prototype.update=function(){
+this.y+=this.speedY;
+if(this.y>canvas.height){
+this.y=0;
+this.x=Math.random()*canvas.width;
+}
+}
+
+Confetti.prototype.draw=function(){
+ctx.fillStyle=this.color;
+ctx.fillRect(this.x,this.y,this.size,this.size);
+}
+
+function startConfetti(){
+for(let i=0;i<120;i++){
+confetti.push(new Confetti());
+}
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+confetti.forEach(c=>{
+c.update();
+c.draw();
+});
+requestAnimationFrame(animate);
+}
+
+animate();
+
+/* HEARTS */
+
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*window.innerWidth+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},500);
+
+/* SLIDESHOW */
+
+let images=[
+"https://picsum.photos/400/250?1",
+"https://picsum.photos/400/250?2",
+"https://picsum.photos/400/250?3"
+];
+
+let slideIndex=0;
+
+setInterval(()=>{
+slideIndex++;
+if(slideIndex>=images.length)slideIndex=0;
+document.getElementById("slide").src=images[slideIndex];
+},2000);
+
+/* GAME */
+
+let score=0;
+
+setInterval(()=>{
+document.getElementById("score").innerText=score;
+},100);
+
+/* CAKE */
+
+function cutCake(){
+document.getElementById("cakeText").style.display="block";
+startConfetti();
+}
+
+</script>
+
+</body>
+</html>
